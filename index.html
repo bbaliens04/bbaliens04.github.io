@@ -1,0 +1,286 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Bardiya Alian — Physics & Astrophysics</title>
+  <meta name="description" content="Bardiya Alian is a physics student at Sharif University of Technology working in observational astrophysics, scientific computing, and gravitation.">
+  <meta name="theme-color" content="#101512">
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%23101512'/%3E%3Ccircle cx='32' cy='32' r='5' fill='%23d8ff78'/%3E%3Cellipse cx='32' cy='32' rx='22' ry='9' fill='none' stroke='%23d8ff78' stroke-width='2' transform='rotate(-25 32 32)'/%3E%3C/svg%3E">
+  <style>
+    :root {
+      --bg: #101512;
+      --surface: #171d19;
+      --surface-2: #1d251f;
+      --text: #f2f5ef;
+      --muted: #aeb8af;
+      --line: #303a32;
+      --accent: #d8ff78;
+      --accent-ink: #192108;
+      --max: 1120px;
+      color-scheme: dark;
+    }
+
+    html[data-theme="light"] {
+      --bg: #f4f3ed;
+      --surface: #ffffff;
+      --surface-2: #e9ece4;
+      --text: #182019;
+      --muted: #5d685f;
+      --line: #cfd5cc;
+      --accent: #577600;
+      --accent-ink: #ffffff;
+      color-scheme: light;
+    }
+
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      margin: 0;
+      background: var(--bg);
+      color: var(--text);
+      font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      line-height: 1.65;
+      transition: background .25s ease, color .25s ease;
+    }
+    a { color: inherit; }
+    a:focus-visible, button:focus-visible { outline: 3px solid var(--accent); outline-offset: 4px; }
+    .wrap { width: min(calc(100% - 40px), var(--max)); margin-inline: auto; }
+    .skip { position: fixed; top: -60px; left: 20px; z-index: 99; padding: 10px 14px; background: var(--accent); color: var(--accent-ink); }
+    .skip:focus { top: 16px; }
+
+    header {
+      position: sticky; top: 0; z-index: 10;
+      background: color-mix(in srgb, var(--bg) 87%, transparent);
+      backdrop-filter: blur(14px);
+      border-bottom: 1px solid color-mix(in srgb, var(--line) 70%, transparent);
+    }
+    nav { min-height: 72px; display: flex; align-items: center; justify-content: space-between; gap: 24px; }
+    .brand { font-weight: 800; letter-spacing: -.03em; text-decoration: none; }
+    .brand span { color: var(--accent); }
+    .nav-links { display: flex; align-items: center; gap: 24px; }
+    .nav-links a { color: var(--muted); text-decoration: none; font-size: .93rem; }
+    .nav-links a:hover { color: var(--text); }
+    .theme-toggle { border: 1px solid var(--line); border-radius: 999px; padding: 8px 12px; background: var(--surface); color: var(--text); cursor: pointer; font: inherit; }
+
+    main { overflow: hidden; }
+    .hero { min-height: calc(100vh - 72px); display: grid; grid-template-columns: 1.25fr .75fr; gap: clamp(40px, 8vw, 96px); align-items: center; padding: 88px 0; }
+    .eyebrow { margin: 0 0 18px; color: var(--accent); font-size: .82rem; font-weight: 800; letter-spacing: .14em; text-transform: uppercase; }
+    h1 { margin: 0; max-width: 800px; font-size: clamp(3.6rem, 8vw, 7.3rem); line-height: .88; letter-spacing: -.075em; }
+    .role { margin: 28px 0 0; max-width: 720px; font-size: clamp(1.25rem, 2.4vw, 2rem); line-height: 1.28; letter-spacing: -.025em; color: var(--muted); }
+    .intro { max-width: 660px; margin: 24px 0 0; color: var(--muted); }
+    .hero-actions { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 34px; }
+    .button { display: inline-flex; align-items: center; justify-content: center; gap: 8px; min-height: 46px; padding: 0 18px; border: 1px solid var(--line); border-radius: 999px; text-decoration: none; font-weight: 750; transition: transform .2s ease, background .2s ease; }
+    .button:hover { transform: translateY(-2px); background: var(--surface-2); }
+    .button.primary { border-color: var(--accent); background: var(--accent); color: var(--accent-ink); }
+
+    .focus-panel { position: relative; min-height: 470px; border: 1px solid var(--line); border-radius: 28px; background: var(--surface); overflow: hidden; padding: 32px; }
+    .focus-panel::before { content: ""; position: absolute; inset: 0; opacity: .25; background-image: linear-gradient(var(--line) 1px, transparent 1px), linear-gradient(90deg, var(--line) 1px, transparent 1px); background-size: 34px 34px; mask-image: linear-gradient(to bottom, #000, transparent 85%); }
+    .focus-panel > * { position: relative; }
+    .focus-index { display: flex; justify-content: space-between; color: var(--muted); font: 700 .75rem/1.2 ui-monospace, SFMono-Regular, Menlo, monospace; letter-spacing: .08em; }
+    .focus-word { margin: 78px 0 58px; font-size: clamp(2.4rem, 5vw, 4.6rem); line-height: .9; letter-spacing: -.065em; font-weight: 900; }
+    .focus-word span { color: var(--accent); }
+    .focus-list { display: grid; gap: 0; border-top: 1px solid var(--line); }
+    .focus-list div { display: flex; justify-content: space-between; gap: 16px; padding: 13px 0; border-bottom: 1px solid var(--line); font-size: .9rem; }
+    .focus-list b { color: var(--accent); font: 700 .76rem ui-monospace, SFMono-Regular, Menlo, monospace; }
+
+    section { padding: 110px 0; border-top: 1px solid var(--line); }
+    .section-head { display: grid; grid-template-columns: .55fr 1.45fr; gap: 40px; margin-bottom: 54px; }
+    .section-number { color: var(--accent); font: 800 .8rem ui-monospace, SFMono-Regular, Menlo, monospace; letter-spacing: .12em; }
+    h2 { margin: 0; max-width: 760px; font-size: clamp(2.4rem, 5vw, 4.5rem); line-height: 1; letter-spacing: -.055em; }
+    .section-copy { max-width: 650px; margin: 18px 0 0; color: var(--muted); }
+
+    .research-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; }
+    .card { padding: 28px; border: 1px solid var(--line); border-radius: 22px; background: var(--surface); }
+    .card .tag { display: inline-block; margin-bottom: 34px; padding: 6px 10px; border-radius: 999px; background: var(--surface-2); color: var(--accent); font: 700 .72rem ui-monospace, SFMono-Regular, Menlo, monospace; }
+    .card h3 { margin: 0; font-size: 1.28rem; line-height: 1.25; letter-spacing: -.025em; }
+    .card p { margin: 15px 0 0; color: var(--muted); font-size: .93rem; }
+
+    .projects { border-top: 1px solid var(--line); }
+    .project { display: grid; grid-template-columns: 90px 1fr auto; gap: 28px; align-items: start; padding: 28px 0; border-bottom: 1px solid var(--line); text-decoration: none; }
+    .project:hover h3 { color: var(--accent); }
+    .project-id { color: var(--muted); font: 700 .78rem ui-monospace, SFMono-Regular, Menlo, monospace; }
+    .project h3 { margin: 0; font-size: clamp(1.15rem, 2.3vw, 1.75rem); line-height: 1.2; transition: color .2s ease; }
+    .project p { margin: 8px 0 0; color: var(--muted); font-size: .92rem; }
+    .arrow { color: var(--accent); font-size: 1.4rem; }
+
+    .split { display: grid; grid-template-columns: 1fr 1fr; gap: 18px; }
+    .panel { padding: 30px; border-radius: 22px; border: 1px solid var(--line); background: var(--surface); }
+    .panel h3 { margin: 0 0 22px; font-size: 1.5rem; }
+    .timeline { display: grid; gap: 0; }
+    .timeline-item { padding: 18px 0; border-top: 1px solid var(--line); }
+    .timeline-item:first-child { border-top: 0; padding-top: 0; }
+    .timeline-item:last-child { padding-bottom: 0; }
+    .timeline-item strong { display: block; }
+    .timeline-item span { color: var(--muted); font-size: .88rem; }
+    .chips { display: flex; flex-wrap: wrap; gap: 9px; }
+    .chip { padding: 8px 12px; border: 1px solid var(--line); border-radius: 999px; color: var(--muted); font-size: .84rem; }
+    .stat { display: grid; grid-template-columns: auto 1fr; gap: 16px; align-items: center; padding: 16px 0; border-top: 1px solid var(--line); }
+    .stat:first-of-type { border-top: 0; }
+    .stat b { font-size: 2rem; color: var(--accent); letter-spacing: -.04em; }
+    .stat span { color: var(--muted); font-size: .9rem; }
+
+    .contact { padding-bottom: 80px; }
+    .contact-box { padding: clamp(34px, 7vw, 80px); border-radius: 30px; background: var(--accent); color: var(--accent-ink); }
+    .contact-box h2 { max-width: 820px; }
+    .contact-box p { max-width: 640px; margin: 22px 0 30px; font-size: 1.05rem; }
+    .contact-links { display: flex; flex-wrap: wrap; gap: 18px 30px; }
+    .contact-links a { font-weight: 850; text-underline-offset: 5px; }
+    footer { display: flex; justify-content: space-between; gap: 20px; padding: 28px 0 38px; color: var(--muted); font-size: .82rem; }
+
+    @media (max-width: 860px) {
+      .nav-links a:not(.cv-link) { display: none; }
+      .hero { min-height: auto; grid-template-columns: 1fr; padding: 72px 0; }
+      .focus-panel { min-height: 390px; }
+      .section-head { grid-template-columns: 1fr; gap: 18px; }
+      .research-grid { grid-template-columns: 1fr; }
+      .split { grid-template-columns: 1fr; }
+    }
+    @media (max-width: 560px) {
+      .wrap { width: min(calc(100% - 28px), var(--max)); }
+      nav { min-height: 64px; }
+      .nav-links { gap: 10px; }
+      .cv-link { display: none !important; }
+      h1 { font-size: clamp(3rem, 17vw, 5rem); }
+      section { padding: 80px 0; }
+      .project { grid-template-columns: 48px 1fr auto; gap: 12px; }
+      .project p { display: none; }
+      .contact-box { border-radius: 22px; }
+      footer { flex-direction: column; }
+    }
+    @media (prefers-reduced-motion: reduce) {
+      html { scroll-behavior: auto; }
+      *, *::before, *::after { transition: none !important; }
+    }
+  </style>
+</head>
+<body>
+  <a class="skip" href="#content">Skip to content</a>
+  <header>
+    <nav class="wrap" aria-label="Main navigation">
+      <a class="brand" href="#top">Bardiya<span>.</span></a>
+      <div class="nav-links">
+        <a href="#research">Research</a>
+        <a href="#projects">Projects</a>
+        <a class="cv-link" href="Bardiya_Alian_CV.pdf" target="_blank">CV</a>
+        <button class="theme-toggle" type="button" aria-label="Switch color theme"><span aria-hidden="true">◐</span></button>
+      </div>
+    </nav>
+  </header>
+
+  <main id="content">
+    <div id="top" class="hero wrap">
+      <div>
+        <p class="eyebrow">Physics · Astrophysics · Gravitation</p>
+        <h1>Bardiya<br>Alian</h1>
+        <p class="role">Physics student exploring galaxies through data—and gravity through theory.</p>
+        <p class="intro">I am a B.Sc. Physics student at Sharif University of Technology. My work combines astronomical image processing, multi-wavelength analysis, Bayesian inference, and scientific computing, with growing research interests in general relativity.</p>
+        <div class="hero-actions">
+          <a class="button primary" href="mailto:bardiaaliansch@gmail.com">Email me</a>
+          <a class="button" href="Bardiya_Alian_CV.pdf" target="_blank">Download CV ↗</a>
+        </div>
+      </div>
+      <aside class="focus-panel" aria-label="Research focus">
+        <div class="focus-index"><span>RESEARCH FOCUS</span><span>2026</span></div>
+        <p class="focus-word">From<br><span>photons</span><br>to physics.</p>
+        <div class="focus-list">
+          <div><span>Observational astrophysics</span><b>01</b></div>
+          <div><span>Scientific computing</span><b>02</b></div>
+          <div><span>Gravity &amp; relativity</span><b>03</b></div>
+        </div>
+      </aside>
+    </div>
+
+    <section id="research">
+      <div class="wrap">
+        <div class="section-head">
+          <span class="section-number">01 / RESEARCH</span>
+          <div><h2>Turning observations into physical insight.</h2><p class="section-copy">My current research centers on nearby dwarf galaxies and astronomical data pipelines, from image preprocessing to interpretable physical models.</p></div>
+        </div>
+        <div class="research-grid">
+          <article class="card"><span class="tag">CURRENT · SUT</span><h3>Two-component dust emission in dwarf galaxies</h3><p>Developing a multi-band SED pipeline for LITTLE THINGS galaxies, including resolution matching, uncertainty estimation, and Bayesian/MCMC modified-blackbody fitting.</p></article>
+          <article class="card"><span class="tag">INO · DETECTION</span><h3>Stellar-source detection with wavelets</h3><p>Built an automated method using dyadic wavelet transforms to enhance point sources and suppress background structure in crowded, low-S/N images.</p></article>
+          <article class="card"><span class="tag">INTERNSHIP · IPM</span><h3>Exposure-time tools for observatory planning</h3><p>Contributed to an ESO-inspired Phase II environment for INO and extended its calculator to model S/N, saturation, and saturated sources in the field of view.</p></article>
+        </div>
+      </div>
+    </section>
+
+    <section id="projects">
+      <div class="wrap">
+        <div class="section-head">
+          <span class="section-number">02 / SELECTED WORK</span>
+          <div><h2>Projects across sky, code, and spacetime.</h2><p class="section-copy">A selection of computational, observational, and theoretical work. Follow each project to its repository or report.</p></div>
+        </div>
+        <div class="projects">
+          <a class="project" href="https://drive.google.com/drive/folders/1jCmZxxbLuySBEou3DQYD1Lu9Cd6wLuoK?usp=drive_link" target="_blank" rel="noreferrer"><span class="project-id">P.01</span><div><h3>Torsion in General Relativity</h3><p>Theoretical presentation supervised by Prof. Sohrab Rahvar.</p></div><span class="arrow">↗</span></a>
+          <a class="project" href="https://drive.google.com/drive/folders/1HNfzdH46tIxUiXoIE8PAD-JnH2TqKAiK?usp=drive_link" target="_blank" rel="noreferrer"><span class="project-id">P.02</span><div><h3>Gravitational Shock Waves</h3><p>Report on theoretical foundations supervised by Prof. Bahram Mashhoon.</p></div><span class="arrow">↗</span></a>
+          <a class="project" href="https://github.com/bbaliens04/adaptive-optics-and-speckle-simlation" target="_blank" rel="noreferrer"><span class="project-id">P.03</span><div><h3>Speckle Imaging &amp; Adaptive Optics</h3><p>Simulations of atmospheric turbulence and its effect on stellar images.</p></div><span class="arrow">↗</span></a>
+          <a class="project" href="https://github.com/bbaliens04/Astronomy-Lab" target="_blank" rel="noreferrer"><span class="project-id">P.04</span><div><h3>Astronomy Experiment Processing</h3><p>Observations and astronomical image processing from seven laboratory experiments.</p></div><span class="arrow">↗</span></a>
+          <a class="project" href="https://app.astrobin.com/u/bbaliens" target="_blank" rel="noreferrer"><span class="project-id">P.05</span><div><h3>Deep-Sky Astrophotography</h3><p>Acquisition, autoguiding, calibration, stacking, and post-processing.</p></div><span class="arrow">↗</span></a>
+          <a class="project" href="https://github.com/bbaliens04/spherical-double-pendulum" target="_blank" rel="noreferrer"><span class="project-id">P.06</span><div><h3>Spherical Double Pendulum</h3><p>Three-dimensional simulation for arbitrary initial conditions.</p></div><span class="arrow">↗</span></a>
+        </div>
+      </div>
+    </section>
+
+    <section id="experience">
+      <div class="wrap">
+        <div class="section-head">
+          <span class="section-number">03 / PROFILE</span>
+          <div><h2>Researcher, teacher, observer.</h2><p class="section-copy">A high-level view of my academic work. The complete record is available in my CV.</p></div>
+        </div>
+        <div class="split">
+          <div class="panel">
+            <h3>Teaching &amp; leadership</h3>
+            <div class="timeline">
+              <div class="timeline-item"><strong>Teaching Assistant · Optics</strong><span>Sharif University of Technology · Fall 2026</span></div>
+              <div class="timeline-item"><strong>Teaching Assistant · Special Relativity</strong><span>Sharif University of Technology · Spring 2026</span></div>
+              <div class="timeline-item"><strong>Teaching Assistant · Astronomy Laboratory I</strong><span>Sharif University of Technology · 2025–2026</span></div>
+              <div class="timeline-item"><strong>Cultural Administrator</strong><span>Physics Scientific Association · one year</span></div>
+            </div>
+          </div>
+          <div class="panel">
+            <h3>Selected distinctions</h3>
+            <div class="stat"><b>18.10</b><span>B.Sc. Physics GPA out of 20 at Sharif University of Technology</span></div>
+            <div class="stat"><b>Silver</b><span>Iranian Astronomy and Astrophysics Olympiad · 2021</span></div>
+            <div class="stat"><b>8.0</b><span>IELTS Academic overall score</span></div>
+            <div class="stat"><b>Top</b><span>Astrophotographer, Messier Marathon Competition · 2025</span></div>
+          </div>
+        </div>
+        <div class="panel" style="margin-top:18px">
+          <h3>Methods &amp; tools</h3>
+          <div class="chips" aria-label="Skills"><span class="chip">Python</span><span class="chip">Astropy</span><span class="chip">Photutils</span><span class="chip">NumPy</span><span class="chip">SciPy</span><span class="chip">Bayesian inference</span><span class="chip">MCMC</span><span class="chip">SED fitting</span><span class="chip">Photometry</span><span class="chip">Wavelet analysis</span><span class="chip">Image processing</span><span class="chip">Telescope operation</span><span class="chip">LaTeX</span></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="contact" id="contact">
+      <div class="wrap">
+        <div class="contact-box">
+          <p class="eyebrow" style="color:inherit">CONTACT</p>
+          <h2>Interested in astrophysics, gravity, or a possible collaboration?</h2>
+          <p>I am always glad to talk about research, graduate opportunities, observational projects, and scientific computing.</p>
+          <div class="contact-links">
+            <a href="mailto:bardiaaliansch@gmail.com">Email</a>
+            <a href="https://github.com/bbaliens04" target="_blank" rel="noreferrer">GitHub ↗</a>
+            <a href="https://app.astrobin.com/u/bbaliens" target="_blank" rel="noreferrer">AstroBin ↗</a>
+            <a href="Bardiya_Alian_CV.pdf" target="_blank">Curriculum vitae ↗</a>
+          </div>
+        </div>
+        <footer><span>© <span id="year"></span> Bardiya Alian</span><span>Built around curiosity, data, and spacetime.</span></footer>
+      </div>
+    </section>
+  </main>
+
+  <script>
+    const root = document.documentElement;
+    const saved = localStorage.getItem('theme');
+    if (saved) root.dataset.theme = saved;
+    document.querySelector('.theme-toggle').addEventListener('click', () => {
+      const light = root.dataset.theme === 'light';
+      root.dataset.theme = light ? 'dark' : 'light';
+      localStorage.setItem('theme', root.dataset.theme);
+    });
+    document.getElementById('year').textContent = new Date().getFullYear();
+  </script>
+</body>
+</html>
